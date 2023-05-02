@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.shu.xj.ser.mapper.OrderMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="OrderResultMap" type="cn.edu.shu.xj.ser.entity.Order">
+        <result column="order_id" property="orderId"/>
+        <result column="service_id" property="serviceId"/>
+        <result column="user_id" property="userId"/>
+        <result column="order_time" property="orderTime"/>
+        <result column="order_status" property="orderStatus"/>
+        <result column="detail_time" property="detailTime"/>
+        <result column="detail_add" property="detailAdd"/>
+        <result column="order_detail1" property="orderDetail1"/>
+        <result column="order_detail2" property="orderDetail2"/>
+        <result column="order_detail3" property="orderDetail3"/>
+        <result column="order_detail4" property="orderDetail4"/>
+    </resultMap>
+</mapper>

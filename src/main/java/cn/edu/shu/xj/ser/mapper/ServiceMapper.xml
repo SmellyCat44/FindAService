@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.shu.xj.ser.mapper.ServiceMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="ServiceResultMap" type="cn.edu.shu.xj.ser.entity.Serviceprovider">
+        <result column="provider_id" property="providerId"/>
+        <result column="service_id" property="serviceId"/>
+        <result column="service_description" property="serviceDescription"/>
+        <result column="service_photo" property="servicePhoto"/>
+        <result column="price" property="price"/>
+        <result column="service_area" property="serviceArea"/>
+        <result column="service_category" property="serviceCategory"/>
+        <result column="availability" property="availability"/>
+        <result column="provider_email" property="providerEmail"/>
+    </resultMap>
+</mapper>
