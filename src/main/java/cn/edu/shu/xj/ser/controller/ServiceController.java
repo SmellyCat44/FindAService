@@ -43,7 +43,8 @@ public class ServiceController {
     @ApiOperation(value = "search_by_id")
     @PostMapping("/search_by_id")
     public Service searchById(@RequestParam(value = "service_id") Integer sid){
-        return serviceService.getById(sid);
+        //return serviceService.getById(sid);
+        return serviceService.searchById(sid);
     }
 
     @ApiOperation(value = "search_by_name")

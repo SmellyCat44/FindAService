@@ -16,7 +16,7 @@ public class Order {
     private Integer user_id;
     private Timestamp order_time;
     private Integer order_status;
-    private Timestamp detail_time;
+    private String detail_time;
     private String detail_add;
     private String order_detail1;
     private String order_detail2;

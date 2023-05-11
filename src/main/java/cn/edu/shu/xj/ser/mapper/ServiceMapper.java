@@ -45,4 +45,7 @@ public interface ServiceMapper extends BaseMapper<Service> {
 
     @Select("select * from services where provider_id=#{provider_id}")
     List<Service> providerList(@Param("provider_id")String pid);
+
+    @Select("select * from services where service_id = #{service_id}")
+    Service searchById(@Param("service_id")Integer sid);
 }

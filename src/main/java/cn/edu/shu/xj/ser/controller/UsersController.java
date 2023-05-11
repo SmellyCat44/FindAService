@@ -19,12 +19,12 @@ public class UsersController {
 
     @ApiOperation(value = "user_login")
     @PostMapping("/login")
-    public int Userlogin(@RequestParam(value = "user_id")String uid, @RequestParam(value = "user_pwd")String upd){
+    public String Userlogin(@RequestParam(value = "user_id")String uid, @RequestParam(value = "user_pwd")String upd){
         Users oneUser = usersService.findUserbyId(uid);
-        if (oneUser==null) return -1;
+        if (oneUser==null) return null;
         else{
-            if(oneUser.getUserPwd().equals(upd)) return 1;
-            else return -2;
+            if(oneUser.getUserPwd().equals(upd)) return uid ;
+            else return "wrong pwd!";
         }
     }
 

@@ -16,4 +16,5 @@ public interface IServiceService extends IService<Service> {
     public List<Service> searchByAreaCategory(String sa, Integer sc);
     public List<Service> searchByCategory(Integer sc);
     public List<Service> providerList(String pid);
+    public Service searchById(Integer sid);
 }

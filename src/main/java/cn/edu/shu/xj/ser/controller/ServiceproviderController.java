@@ -22,12 +22,12 @@ public class ServiceproviderController {
 
     @ApiOperation(value = "serviceprovider_login")
     @PostMapping("/login")
-    public int Serviceproviderlogin(@RequestParam(value = "provider_id")String pid, @RequestParam(value = "provider_pwd")String ppd){
+    public String Serviceproviderlogin(@RequestParam(value = "provider_id")String pid, @RequestParam(value = "provider_pwd")String ppd){
         Serviceprovider oneServiceprovider = serviceproviderService.findSpbyId(pid);
-        if (oneServiceprovider==null) return -1;
+        if (oneServiceprovider==null) return null;
         else{
-            if(oneServiceprovider.getProviderPwd().equals(ppd)) return 1;
-            else return -2;
+            if(oneServiceprovider.getProviderPwd().equals(ppd)) return pid;
+            else return "wrong pwd!";
         }
     }
 
@@ -72,4 +72,6 @@ public class ServiceproviderController {
         if(onesp == null) return -1;
         return serviceproviderService.adminRequest(pid);
     }
+
+
 }

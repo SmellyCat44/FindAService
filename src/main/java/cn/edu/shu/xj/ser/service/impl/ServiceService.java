@@ -43,4 +43,8 @@ public class ServiceService extends ServiceImpl<ServiceMapper, cn.edu.shu.xj.ser
     public List<cn.edu.shu.xj.ser.entity.Service> providerList(String pid){
         return serviceMapper.providerList(pid);
     }
+
+    public cn.edu.shu.xj.ser.entity.Service searchById(Integer sid){
+        return serviceMapper.searchById(sid);
+    }
 }
