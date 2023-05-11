@@ -15,6 +15,7 @@ import java.util.List;
 @Api(tags = "ServiceproviderInterface")
 @RequestMapping("/serviceprovider")
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class ServiceproviderController {
 
     @Autowired

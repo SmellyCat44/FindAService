@@ -13,6 +13,7 @@ import java.util.List;
 @Api(tags = "ServiceInterface")
 @RequestMapping("/service")
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class ServiceController {
 
     @Autowired

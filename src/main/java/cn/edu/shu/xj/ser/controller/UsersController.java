@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "UsersInterface")
 @RequestMapping("/users")
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class UsersController {
 
     @Autowired
@@ -36,10 +37,13 @@ public class UsersController {
 
     @ApiOperation(value = "user_register")
     @PostMapping("/register")
-    public boolean register(@RequestBody Users users){
+    public String register(@RequestBody Users users){
         Users oneUser = usersService.findUserbyId(users.getUserId());
-        if(oneUser!=null) return false;
-        else return usersService.saveOrUpdate(users);
+        if(oneUser!=null) return "user does exist!";
+        else {
+            usersService.saveOrUpdate(users);
+            return users.getUserId();
+        }
     }
 
 }
