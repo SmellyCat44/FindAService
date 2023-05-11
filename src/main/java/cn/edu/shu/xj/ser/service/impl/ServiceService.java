@@ -32,11 +32,11 @@ public class ServiceService extends ServiceImpl<ServiceMapper, cn.edu.shu.xj.ser
         return serviceMapper.searchByArea(sa);
     }
 
-    public List<cn.edu.shu.xj.ser.entity.Service> searchByAreaCategory(String sa, Integer sc){
+    public List<cn.edu.shu.xj.ser.entity.Service> searchByAreaCategory(String sa, String sc){
         return serviceMapper.searchByAreaCategory(sa,sc);
     }
 
-    public List<cn.edu.shu.xj.ser.entity.Service> searchByCategory(Integer sc){
+    public List<cn.edu.shu.xj.ser.entity.Service> searchByCategory(String sc){
         return serviceMapper.searchByCategory(sc);
     }
 

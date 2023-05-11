@@ -38,10 +38,10 @@ public interface ServiceMapper extends BaseMapper<Service> {
     List<Service> searchByArea(@Param("service_area")String sa);
 
     @Select("select * from services where service_area=#{service_area} and service_category=#{service_category}")
-    List<Service> searchByAreaCategory(@Param("service_area")String sa, @Param("service_category")Integer sc);
+    List<Service> searchByAreaCategory(@Param("service_area")String sa, @Param("service_category")String sc);
 
     @Select("select * from services where service_category=#{service_category}")
-    List<Service> searchByCategory(@Param("service_category") Integer sc);
+    List<Service> searchByCategory(@Param("service_category") String sc);
 
     @Select("select * from services where provider_id=#{provider_id}")
     List<Service> providerList(@Param("provider_id")String pid);

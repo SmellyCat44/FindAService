@@ -13,8 +13,8 @@ public interface IServiceService extends IService<Service> {
     public List<Service> verifing_list();
     public List<Service> searchByName(String sd);
     public List<Service> searchByArea(String sa);
-    public List<Service> searchByAreaCategory(String sa, Integer sc);
-    public List<Service> searchByCategory(Integer sc);
+    public List<Service> searchByAreaCategory(String sa, String sc);
+    public List<Service> searchByCategory(String sc);
     public List<Service> providerList(String pid);
     public Service searchById(Integer sid);
 }

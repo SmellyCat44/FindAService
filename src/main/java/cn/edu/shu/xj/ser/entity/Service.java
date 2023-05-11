@@ -16,6 +16,6 @@ public class Service {
     private Double price;
     private String serviceArea;
     private String availability;
-    private Integer serviceCategory;
+    private String serviceCategory;
     private String providerEmail;
 }

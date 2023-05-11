@@ -62,13 +62,13 @@ public class ServiceController {
 
     @ApiOperation(value = "search_by_category")
     @PostMapping("/search_by_category")
-    public List<Service> searchByCategory(@RequestParam(value = "service_category") Integer sc){
+    public List<Service> searchByCategory(@RequestParam(value = "service_category") String sc){
         return serviceService.searchByCategory(sc);
     }
 
     @ApiOperation(value = "search_by_area_category")
     @PostMapping("/search_by_area_category")
-    public List<Service> searchByAreaCategory(@RequestParam(value = "service_area") String sa, @RequestParam(value = "service_category") Integer sc){
+    public List<Service> searchByAreaCategory(@RequestParam(value = "service_area") String sa, @RequestParam(value = "service_category") String sc){
         return serviceService.searchByAreaCategory(sa,sc);
     }
 

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IOrderService extends IService<Order> {
 
-    public boolean userRequest(String uid, Integer sid, String dt, String da);
+    public boolean userRequest(String uid, Integer sid, String dt);
 
     public List<Order> requestList(String pid);
 }

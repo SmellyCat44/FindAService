@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Api(tags = "OrderInterface")
@@ -22,14 +23,15 @@ public class OrderController {
 
     @Autowired
     IOrderService orderService;
+    @Autowired
     IServiceService serviceService;
 
     @ApiOperation(value = "user_request")
     @PostMapping("/user_request")
-    public boolean userRequest(@RequestParam(value = "user_id") String uid, @RequestParam(value = "service_id") Integer sid, @RequestParam(value = "detail_time")String dt, @RequestParam(value = "detail_add")String da){
+    public boolean userRequest(@RequestParam(value = "user_id") String uid, @RequestParam(value = "service_id") Integer sid, @RequestParam(value = "detail_time")String dt){
         Service oneService = serviceService.searchById(sid);
-        if(oneService == null) return false;
-        return orderService.userRequest(uid,sid,dt,da);
+        if (oneService==null) return false;
+        return orderService.userRequest(uid, sid, dt);
     }
 
     @ApiOperation(value = "request_list_for_provider")
