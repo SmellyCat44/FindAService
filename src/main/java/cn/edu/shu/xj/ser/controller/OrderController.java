@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Api(tags = "OrderInterface")
@@ -36,7 +37,7 @@ public class OrderController {
 
     @ApiOperation(value = "request_list_for_provider")
     @PostMapping("/request_list")
-    public List<Order> requestList(@RequestParam(value = "provider_id") String pid){
+    public List<LinkedHashMap<Object,Object>> requestList(@RequestParam(value = "provider_id") String pid){
         return orderService.requestList(pid);
     }
 

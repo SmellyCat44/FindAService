@@ -14,5 +14,13 @@
         <result column="order_detail2" property="orderDetail2"/>
         <result column="order_detail3" property="orderDetail3"/>
         <result column="order_detail4" property="orderDetail4"/>
+        <result column="provider_id" property="providerId"/>
+        <result column="service_description" property="serviceDescription"/>
+        <result column="service_photo" property="servicePhoto"/>
+        <result column="price" property="price"/>
+        <result column="service_area" property="serviceArea"/>
+        <result column="service_category" property="serviceCategory"/>
+        <result column="availability" property="availability"/>
+        <result column="provider_email" property="providerEmail"/>
     </resultMap>
 </mapper>

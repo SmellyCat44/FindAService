@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Component
@@ -19,8 +20,9 @@ public interface OrderMapper extends BaseMapper<Order> {
     boolean userRequest(@Param("user_id")String uid, @Param("service_id")Integer sid, @Param("detail_time")String dt);
 //    , @Param("detail_add")String ad
 
-    @Select("select * from orders a, services b where a.service_id = b.service_id and b.provider_id = #{provider_id}")
-    List<Order> requestList(@Param("provider_id")String pid);
+//    @Select("select a.user_id,a.service_id,a.order_time,a.order_status,a.order_id,a.detail_time,b.availability,b.price,b.service_description from orders a, services b where a.service_id = b.service_id and b.provider_id = #{provider_id}")
+    @Select("select * from orders a, services b where a.service_id = b.service_id and b.provider_id = #{provider_id} and order_status=1")
+    List<LinkedHashMap<Object,Object>> requestList(@Param("provider_id")String pid);
 
 //    @Select("select * from address where user_id =#{uid}")
 //    List<Admin> list1(@Param("uid") String uid);

@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Service
@@ -19,7 +20,7 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> implements IOr
         return orderMapper.userRequest(uid,sid,dt);
     }
 
-    public List<Order> requestList(String pid){
+    public List<LinkedHashMap<Object,Object>> requestList(String pid){
         return orderMapper.requestList(pid);
     }
 }

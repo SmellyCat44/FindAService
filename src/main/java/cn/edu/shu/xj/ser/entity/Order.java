@@ -22,4 +22,12 @@ public class Order {
     private String order_detail2;
     private String order_detail3;
     private String order_detail4;
+    private String providerId;
+    private String serviceDescription;
+    private String servicePhoto;
+    private Double price;
+    private String serviceArea;
+    private String availability;
+    private String serviceCategory;
+    private String providerEmail;
 }
