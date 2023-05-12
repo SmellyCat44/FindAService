@@ -24,6 +24,18 @@ public interface OrderMapper extends BaseMapper<Order> {
     @Select("select * from orders a, services b where a.service_id = b.service_id and b.provider_id = #{provider_id} and order_status=1")
     List<LinkedHashMap<Object,Object>> requestList(@Param("provider_id")String pid);
 
+    @Update("update orders set order_status= -1 where order_id =#{order_id}")
+    boolean providerReject(@Param("order_id")Integer oid);
+
+    @Select("select * from orders where order_id = #{order_id}")
+    Order searchById(@Param("order_id")Integer oid);
+
+    @Update("update orders set order_status= 2 where order_id =#{order_id} and order_status = 1")
+    boolean providerAccept(@Param("order_id")Integer oid);
+
+    @Select("select * from orders where user_id = #{user_id}")
+    List<Order> searchByUserId(String uid);
+
 //    @Select("select * from address where user_id =#{uid}")
 //    List<Admin> list1(@Param("uid") String uid);
 

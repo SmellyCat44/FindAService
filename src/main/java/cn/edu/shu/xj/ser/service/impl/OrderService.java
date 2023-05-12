@@ -23,4 +23,20 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> implements IOr
     public List<LinkedHashMap<Object,Object>> requestList(String pid){
         return orderMapper.requestList(pid);
     }
+
+    public boolean providerReject(Integer oid){
+        return orderMapper.providerReject(oid);
+    }
+
+    public Order searchById(Integer oid){
+        return orderMapper.searchById(oid);
+    }
+
+    public boolean providerAccept(Integer oid){
+        return orderMapper.providerAccept(oid);
+    }
+
+    public List<Order> searchByUserId(String uid){
+        return orderMapper.searchByUserId(uid);
+    }
 }

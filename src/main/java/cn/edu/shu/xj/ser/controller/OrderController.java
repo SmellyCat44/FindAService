@@ -41,4 +41,26 @@ public class OrderController {
         return orderService.requestList(pid);
     }
 
+    @ApiOperation(value = "provider_reject_user_request")
+    @PostMapping("/provider_reject")
+    public boolean providerReject(@RequestParam(value = "order_id") Integer oid){
+        //Order oneOrder = orderService.searchById(oid);
+        //System.out.println(oneOrder);
+//        if (oneOrder==null) return false;
+//        if(oneOrder.getOrder_status()!=1) return false;// if order_status != 1 means the order cannot be rejected
+        return orderService.providerReject(oid);
+    }
+
+    @ApiOperation(value = "provider_accept_user_request")
+    @PostMapping("/provider_accept")
+    public boolean providerAccept(@RequestParam(value = "order_id") Integer oid){
+        return orderService.providerAccept(oid);
+    }
+
+    @ApiOperation(value = "user_browse_his_orders")
+    @PostMapping("/user_list")
+    public List<Order> userBrowse(@RequestParam(value = "user_id") String uid){
+        return orderService.searchByUserId(uid);
+    }
+
 }
