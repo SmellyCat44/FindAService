@@ -22,7 +22,7 @@ public class UsersController {
     @PostMapping("/login")
     public String Userlogin(@RequestParam(value = "user_id")String uid, @RequestParam(value = "user_pwd")String upd){
         Users oneUser = usersService.findUserbyId(uid);
-        if (oneUser==null) return null;
+        if (oneUser==null) return "empty";
         else{
             if(oneUser.getUserPwd().equals(upd)) return uid ;
             else return "wrong pwd!";

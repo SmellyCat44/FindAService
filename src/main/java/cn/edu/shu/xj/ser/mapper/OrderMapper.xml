@@ -6,6 +6,7 @@
         <result column="order_id" property="orderId"/>
         <result column="service_id" property="serviceId"/>
         <result column="user_id" property="userId"/>
+        <result column="review_id" property="reviewId"/>
         <result column="order_time" property="orderTime"/>
         <result column="order_status" property="orderStatus"/>
         <result column="detail_time" property="detailTime"/>

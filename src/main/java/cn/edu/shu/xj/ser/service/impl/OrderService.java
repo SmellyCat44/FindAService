@@ -4,6 +4,7 @@ import cn.edu.shu.xj.ser.entity.Order;
 import cn.edu.shu.xj.ser.mapper.OrderMapper;
 import cn.edu.shu.xj.ser.service.IOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +17,8 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> implements IOr
     @Autowired
     OrderMapper orderMapper;
 
-    public boolean userRequest(String uid, Integer sid, String dt){
-        return orderMapper.userRequest(uid,sid,dt);
+    public boolean userRequest(String uid, Integer sid, String dt, String d1){
+        return orderMapper.userRequest(uid,sid,dt,d1);
     }
 
     public List<LinkedHashMap<Object,Object>> requestList(String pid){
@@ -36,7 +37,27 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> implements IOr
         return orderMapper.providerAccept(oid);
     }
 
-    public List<Order> searchByUserId(String uid){
+    public List<LinkedHashMap<Object,Object>> searchByUserId(String uid){
         return orderMapper.searchByUserId(uid);
+    }
+
+    public boolean userReply1(Integer oid, String des){
+        return orderMapper.userReply1(oid,des);
+    }
+
+    public boolean providerReply2(Integer oid, String des){
+        return orderMapper.providerReply2(oid,des);
+    }
+
+    public boolean userReply3(Integer oid, String des){
+        return orderMapper.userReply3(oid,des);
+    }
+
+    public boolean providerReply4(Integer oid, String des){
+        return orderMapper.providerReply4(oid,des);
+    }
+
+    public LinkedHashMap<Order, cn.edu.shu.xj.ser.entity.Service> loadService(Integer oid){
+        return orderMapper.loadService(oid);
     }
 }

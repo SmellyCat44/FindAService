@@ -11,15 +11,16 @@ import java.sql.Timestamp;
 @TableName("orders")
 public class Order {
     @TableId(value = "order_id",type = IdType.INPUT)
-    private Integer order_id;
-    private Integer service_id;
-    private Integer user_id;
-    private Timestamp order_time;
-    private Integer order_status;
-    private String detail_time;
-    private String detail_add;
-    private String order_detail1;
-    private String order_detail2;
-    private String order_detail3;
-    private String order_detail4;
+    private Integer orderId;
+    private Integer serviceId;
+    private String userId;
+    private Integer reviewId;
+    private Timestamp orderTime;
+    private Integer orderStatus;
+    private String detailTime;
+    private String detailAdd;
+    private String orderDetail1;
+    private String orderDetail2;
+    private String orderDetail3;
+    private String orderDetail4;
 }

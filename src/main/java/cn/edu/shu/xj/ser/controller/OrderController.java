@@ -29,10 +29,10 @@ public class OrderController {
 
     @ApiOperation(value = "user_request")
     @PostMapping("/user_request")
-    public boolean userRequest(@RequestParam(value = "user_id") String uid, @RequestParam(value = "service_id") Integer sid, @RequestParam(value = "detail_time")String dt){
+    public boolean userRequest(@RequestParam(value = "user_id") String uid, @RequestParam(value = "service_id") Integer sid, @RequestParam(value = "detail_time")String dt, @RequestParam(value = "order_detail1")String d1){
         Service oneService = serviceService.searchById(sid);
         if (oneService==null) return false;
-        return orderService.userRequest(uid, sid, dt);
+        return orderService.userRequest(uid, sid, dt, d1);
     }
 
     @ApiOperation(value = "request_list_for_provider")
@@ -59,8 +59,37 @@ public class OrderController {
 
     @ApiOperation(value = "user_browse_his_orders")
     @PostMapping("/user_list")
-    public List<Order> userBrowse(@RequestParam(value = "user_id") String uid){
+    public List<LinkedHashMap<Object,Object>> userBrowse(@RequestParam(value = "user_id") String uid){
         return orderService.searchByUserId(uid);
     }
 
+    @ApiOperation(value = "user_give_description1")
+    @PostMapping("/user_reply1")
+    public boolean userReply1(@RequestParam(value = "order_id") Integer oid, @RequestParam(value = "order_detail1") String des){
+        return orderService.userReply1(oid, des);
+    }
+
+    @ApiOperation(value = "provider_load_order")
+    @PostMapping("/provider_read")
+    public LinkedHashMap<Order,Service> providerRead(@RequestParam(value = "order_id") Integer oid){
+        return orderService.loadService(oid);
+    }
+
+    @ApiOperation(value = "provider_give_description2")
+    @PostMapping("/provider_reply2")
+    public boolean providerReply2(@RequestParam(value = "order_id") Integer oid, @RequestParam(value = "order_detail2") String des){
+        return orderService.providerReply2(oid, des);
+    }
+
+    @ApiOperation(value = "user_give_description3")
+    @PostMapping("/user_reply3")
+    public boolean userReply3(@RequestParam(value = "order_id") Integer oid, @RequestParam(value = "order_detail3") String des){
+        return orderService.userReply3(oid, des);
+    }
+
+    @ApiOperation(value = "provider_give_description4")
+    @PostMapping("/provider_reply4")
+    public boolean providerReply4(@RequestParam(value = "order_id") Integer oid, @RequestParam(value = "order_detail4") String des){
+        return orderService.providerReply4(oid, des);
+    }
 }
