@@ -92,4 +92,14 @@ public class OrderController {
     public boolean providerReply4(@RequestParam(value = "order_id") Integer oid, @RequestParam(value = "order_detail4") String des){
         return orderService.providerReply4(oid, des);
     }
+
+    @ApiOperation(value = "user_confirm_order")
+    @PostMapping("/user_confirm_finish")
+    public boolean userConfirmFinish(@RequestParam(value = "order_id") Integer oid){
+        Order oneOrder = orderService.getById(oid);
+        if (oneOrder==null) return false;
+        if (oneOrder.getOrderStatus()>=3) return orderService.userConfirmFinish(oid);
+        else return false;
+    }
+
 }

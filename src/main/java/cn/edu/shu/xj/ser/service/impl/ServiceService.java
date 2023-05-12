@@ -47,4 +47,6 @@ public class ServiceService extends ServiceImpl<ServiceMapper, cn.edu.shu.xj.ser
     public cn.edu.shu.xj.ser.entity.Service searchById(Integer sid){
         return serviceMapper.searchById(sid);
     }
+
+
 }

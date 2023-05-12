@@ -9,10 +9,10 @@ import lombok.Data;
 @TableName("review")
 public class Review {
     @TableId(value = "review_id",type = IdType.INPUT)
-    private Integer review_id;
-    private Integer order_id;
-    private Integer service_id;
-    private Integer user_id;
+    private Integer reviewId;
+    private Integer orderId;
+    private Integer serviceId;
+    private String userId;
     private Integer score;
     private String content;
 }

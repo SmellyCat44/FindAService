@@ -60,4 +60,7 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> implements IOr
     public LinkedHashMap<Order, cn.edu.shu.xj.ser.entity.Service> loadService(Integer oid){
         return orderMapper.loadService(oid);
     }
+    public boolean userConfirmFinish(Integer oid){
+        return orderMapper.userConfirmFinish(oid);
+    }
 }

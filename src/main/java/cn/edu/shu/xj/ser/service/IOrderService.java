@@ -31,4 +31,6 @@ public interface IOrderService extends IService<Order> {
     public boolean providerReply4(Integer oid, String des);
 
     public LinkedHashMap<Order, Service> loadService(Integer oid);
+
+    public boolean userConfirmFinish(Integer oid);
 }
