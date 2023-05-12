@@ -93,6 +93,16 @@ public class OrderController {
         return orderService.providerReply4(oid, des);
     }
 
+    @ApiOperation(value = "provider_give_description4")
+    @PostMapping("/provider_reply")
+    public boolean providerReply(@RequestParam(value = "order_id") Integer oid, @RequestParam(value = "order_detail") String des){
+        Order oneOrder = orderService.searchById(oid);
+        if(oneOrder==null) return false;
+        if(oneOrder.getOrderDetail2()==null) return orderService.providerReply2(oid, des);
+        else return providerReply4(oid, des);
+
+    }
+
     @ApiOperation(value = "user_confirm_order")
     @PostMapping("/user_confirm_finish")
     public boolean userConfirmFinish(@RequestParam(value = "order_id") Integer oid){
