@@ -63,11 +63,11 @@ public class OrderController {
         return orderService.searchByUserId(uid);
     }
 
-    @ApiOperation(value = "user_give_description1")
-    @PostMapping("/user_reply1")
-    public boolean userReply1(@RequestParam(value = "order_id") Integer oid, @RequestParam(value = "order_detail1") String des){
-        return orderService.userReply1(oid, des);
-    }
+//    @ApiOperation(value = "user_give_description1")
+//    @PostMapping("/user_reply1")
+//    public boolean userReply1(@RequestParam(value = "order_id") Integer oid, @RequestParam(value = "order_detail1") String des){
+//        return orderService.userReply1(oid, des);
+//    }
 
     @ApiOperation(value = "provider_load_order")
     @PostMapping("/provider_read")
@@ -108,7 +108,7 @@ public class OrderController {
     public boolean userConfirmFinish(@RequestParam(value = "order_id") Integer oid){
         Order oneOrder = orderService.getById(oid);
         if (oneOrder==null) return false;
-        if (oneOrder.getOrderStatus()>=3) return orderService.userConfirmFinish(oid);
+        if (oneOrder.getOrderStatus()==2) return orderService.userConfirmFinish(oid);
         else return false;
     }
 

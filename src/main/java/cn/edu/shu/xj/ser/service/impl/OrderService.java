@@ -63,4 +63,8 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> implements IOr
     public boolean userConfirmFinish(Integer oid){
         return orderMapper.userConfirmFinish(oid);
     }
+
+    public int getOidNow(){
+        return orderMapper.getOidNow();
+    }
 }

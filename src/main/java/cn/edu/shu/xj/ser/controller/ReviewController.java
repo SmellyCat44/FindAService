@@ -64,5 +64,11 @@ public class ReviewController {
         return reviewService.loadReviews(sid);
     }
 
+    @ApiOperation(value = "load_reviews_list")
+    @GetMapping("/load_reviews_list")
+    public List<Review> loadReviewList(){
+        return reviewService.list();
+    }
+
 
 }

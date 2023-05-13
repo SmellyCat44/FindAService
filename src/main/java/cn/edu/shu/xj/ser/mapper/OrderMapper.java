@@ -37,17 +37,17 @@ public interface OrderMapper extends BaseMapper<Order> {
     @Select("select * from orders a, services b where a.service_id = b.service_id and a.user_id = #{user_id} ")
     List<LinkedHashMap<Object,Object>> searchByUserId(@Param("user_id")String uid);
 
-    @Update("update orders set order_detail1 = #{order_detail1},order_status = 3  where order_id = #{order_id} and order_status = 2")
+    @Update("update orders set order_detail1 = #{order_detail1} where order_id = #{order_id}")
     boolean userReply1(@Param("order_id")Integer oid, @Param("order_detail1")String des);
 
-    @Update("update orders set order_detail2 = #{order_detail2},order_status = 4 where order_id = #{order_id} and order_status = 3")
+    @Update("update orders set order_detail2 = #{order_detail2} where order_id = #{order_id}")
     boolean providerReply2(@Param("order_id")Integer oid, @Param("order_detail2")String des);
 
 
-    @Update("update orders set order_detail3 = #{order_detail3},order_status = 5  where order_id = #{order_id} and order_status = 4")
+    @Update("update orders set order_detail3 = #{order_detail3} where order_id = #{order_id}")
     boolean userReply3(@Param("order_id")Integer oid, @Param("order_detail3")String des);
 
-    @Update("update orders set order_detail4 = #{order_detail4},order_status = 6 where order_id = #{order_id} and order_status = 5")
+    @Update("update orders set order_detail4 = #{order_detail4} where order_id = #{order_id}")
     boolean providerReply4(@Param("order_id")Integer oid, @Param("order_detail4")String des);
 
     @Select("select * from orders a, services b where a.service_id = b.service_id and a.order_id=#{order_id}")
@@ -55,6 +55,9 @@ public interface OrderMapper extends BaseMapper<Order> {
 
     @Update("update orders set order_status=0 where order_id = #{order_id}")
     boolean userConfirmFinish(@Param("order_id")Integer oid);
+
+    @Select("select max(order_id) from orders")
+    int getOidNow();
 
 
 //    @Select("select * from address where user_id =#{uid}")

@@ -33,4 +33,6 @@ public interface IOrderService extends IService<Order> {
     public LinkedHashMap<Order, Service> loadService(Integer oid);
 
     public boolean userConfirmFinish(Integer oid);
+
+    public int getOidNow();
 }
