@@ -1,12 +1,10 @@
-本项目是一个基于Spring Boot + Vue.js构建的一个前后端分离项目框架。  
-（1）后端数据库默认是ssm，建有一个表student，用户名root,密码123456。  
-（2）后端默认端口是8082，前端默认端口是8080，已经做了跨域处理。  
-（3）前端的ajax请求均通过封装好的axios来进行，返回数据都是后端处理过的json格式。  
-（4）项目中的swagger测试接口 http://localhost:8082/swagger-ui.html#/
-## 后端技术栈
+This project is a based on Spring Boot + React.js website platform called Find A Service.  
+（1）the database is findaservice3.sql，username is root, the password depends on yours own.  
+（2）The back-end default port is 8082, region cross has been done.  
+## Back-end technical stack
 SpringBoot   
 Mybatis plus  
 
-## 前端技术栈
-Vue.js  
+## Front-end technical stack
+React.js  
 axios
