@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Service
@@ -34,5 +35,8 @@ public class ReviewService extends ServiceImpl<ReviewMapper, Review> implements 
         return reviewMapper.loadReviews(sid);
     }
 
+    public List<LinkedHashMap<Review, cn.edu.shu.xj.ser.entity.Service>> loadReviewsAreaCategory(String sa, String ca){
+        return reviewMapper.loadReviewsAreaCategory(sa,ca);
+    }
 
 }

@@ -2,6 +2,7 @@ package cn.edu.shu.xj.ser.controller;
 
 import cn.edu.shu.xj.ser.entity.Order;
 import cn.edu.shu.xj.ser.entity.Review;
+import cn.edu.shu.xj.ser.entity.Service;
 import cn.edu.shu.xj.ser.service.IOrderService;
 import cn.edu.shu.xj.ser.service.IReviewService;
 import io.swagger.annotations.Api;
@@ -9,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Api(tags = "ReviewInterface")
@@ -70,5 +72,10 @@ public class ReviewController {
         return reviewService.list();
     }
 
+    @ApiOperation(value = "load_reviews_by_area_category")
+    @PostMapping("/load_reviews_by_area_category")
+    public List<LinkedHashMap<Review, Service>> loadReviewsAreaCategory(@RequestParam(value = "service_area")String sa, @RequestParam(value = "service_category")String ca){
+        return reviewService.loadReviewsAreaCategory(sa,ca);
+    }
 
 }

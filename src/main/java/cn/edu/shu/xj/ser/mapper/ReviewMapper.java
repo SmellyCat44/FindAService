@@ -3,6 +3,7 @@ package cn.edu.shu.xj.ser.mapper;
 
 import cn.edu.shu.xj.ser.entity.Admin;
 import cn.edu.shu.xj.ser.entity.Review;
+import cn.edu.shu.xj.ser.entity.Service;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -10,6 +11,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Component
@@ -28,4 +30,7 @@ public interface ReviewMapper extends BaseMapper<Review> {
 
     @Select("select * from review where service_id=#{service_id}")
     List<Review> loadReviews(@Param("service_id")Integer sid);
+
+    @Select("select * from review a, services b where a.service_id = b.service_id")
+    List<LinkedHashMap<Review, Service>> loadReviewsAreaCategory(@Param("service_area")String sa, @Param("service_category")String ca);
 }
