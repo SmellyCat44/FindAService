@@ -1,5 +1,6 @@
 package cn.edu.shu.xj.ser.service.impl;
 
+import cn.edu.shu.xj.ser.entity.Review;
 import cn.edu.shu.xj.ser.entity.Serviceprovider;
 import cn.edu.shu.xj.ser.mapper.ServiceMapper;
 import cn.edu.shu.xj.ser.service.IServiceService;
@@ -8,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Service
@@ -48,5 +50,8 @@ public class ServiceService extends ServiceImpl<ServiceMapper, cn.edu.shu.xj.ser
         return serviceMapper.searchById(sid);
     }
 
+    public List<LinkedHashMap<Review, cn.edu.shu.xj.ser.entity.Service>> searchByAreaCategoryWithReview(String sa, String sc){
+        return serviceMapper.searchByAreaCategoryWithReview(sa,sc);
+    }
 
 }

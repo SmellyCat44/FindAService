@@ -1,5 +1,6 @@
 package cn.edu.shu.xj.ser.controller;
 
+import cn.edu.shu.xj.ser.entity.Review;
 import cn.edu.shu.xj.ser.entity.Service;
 import cn.edu.shu.xj.ser.service.IServiceService;
 import cn.edu.shu.xj.ser.service.impl.ServiceService;
@@ -8,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Api(tags = "ServiceInterface")
@@ -76,5 +78,11 @@ public class ServiceController {
     @PostMapping("/provider_list")
     public List<Service> providerList(@RequestParam(value = "provider_id") String pid){
         return serviceService.providerList(pid);
+    }
+
+    @ApiOperation(value = "search_by_area_category_with_review")
+    @PostMapping("/search_by_area_category_with_review")
+    public List<LinkedHashMap<Review, Service>> searchByAreaCategoryWithReview(@RequestParam(value = "service_area") String sa, @RequestParam(value = "service_category") String sc){
+        return serviceService.searchByAreaCategoryWithReview(sa,sc);
     }
 }
