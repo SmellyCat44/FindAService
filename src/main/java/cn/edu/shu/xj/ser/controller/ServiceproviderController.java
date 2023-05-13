@@ -25,7 +25,7 @@ public class ServiceproviderController {
     @PostMapping("/login")
     public String Serviceproviderlogin(@RequestParam(value = "provider_id")String pid, @RequestParam(value = "provider_pwd")String ppd){
         Serviceprovider oneServiceprovider = serviceproviderService.findSpbyId(pid);
-        if (oneServiceprovider==null) return null;
+        if (oneServiceprovider==null) return "empty";
         else{
             if(oneServiceprovider.getProviderPwd().equals(ppd)) return pid;
             else return "wrong pwd!";
@@ -40,10 +40,11 @@ public class ServiceproviderController {
 
     @ApiOperation(value = "serviceprovider_register")
     @PostMapping("/register")
-    public boolean register(@RequestBody Serviceprovider serviceprovider){
+    public String register(@RequestBody Serviceprovider serviceprovider){
         Serviceprovider oneServiceprovider = serviceproviderService.findSpbyId(serviceprovider.getProviderId());
-        if(oneServiceprovider!=null) return false;
-        else return serviceproviderService.saveOrUpdate(serviceprovider);
+        if(oneServiceprovider!=null) return "user does exsit!";
+        else serviceproviderService.saveOrUpdate(serviceprovider);
+        return serviceprovider.getProviderId();
     }
 
     @ApiOperation(value = "admin_verify_serviceprovider")
