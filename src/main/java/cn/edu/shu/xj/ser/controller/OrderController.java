@@ -106,6 +106,15 @@ public class OrderController {
         else return false;
     }
 
+    @ApiOperation(value = "user_withdraw_request")
+    @PostMapping("/user_withdraw")
+    public boolean userWithdraw(@RequestParam(value = "order_id") Integer oid){
+        Order oneOrder = orderService.getById(oid);
+        if (oneOrder==null) return false;
+        if (oneOrder.getOrderStatus().equals("pending")) return orderService.userWithdraw(oid);
+        else return false;
+    }
+
     //pending, rejected, accepted, completed
 
     //list for user himself
@@ -133,7 +142,13 @@ public class OrderController {
         return orderService.userCompletedList(uid);
     }
 
-    //pending, rejected, accepted, completed
+    @ApiOperation(value = "user_withdraw_list")
+    @PostMapping("/user_withdraw_list")
+    public List<LinkedHashMap<Object,Object>> userWithdrawList(@RequestParam(value = "user_id") String uid){
+        return orderService.userWithdrawList(uid);
+    }
+
+    //pending, rejected, accepted, completed, withdraw
     //list for provider himself
     @ApiOperation(value = "request_list_for_provider_pending")
     @PostMapping("/request_list")
@@ -157,6 +172,12 @@ public class OrderController {
     @PostMapping("/completed_list")
     public List<LinkedHashMap<Object,Object>> completedList(@RequestParam(value = "provider_id") String pid){
         return orderService.completedList(pid);
+    }
+
+    @ApiOperation(value = "provider_withdraw_list")
+    @PostMapping("/withdraw_list")
+    public List<LinkedHashMap<Object,Object>> withdrawList(@RequestParam(value = "provider_id") String pid){
+        return orderService.withdrawList(pid);
     }
 
 }

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50514
 File Encoding         : 65001
 
-Date: 2023-05-13 15:52:49
+Date: 2023-05-13 17:26:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -66,7 +66,7 @@ INSERT INTO `orders` VALUES ('5', '1', null, 'user3@gmail.com', '2023-05-13 15:5
 INSERT INTO `orders` VALUES ('10', '2', null, 'user3@gmail.com', '2023-05-13 15:33:46', 'rejected', '4pm/10/5/2023', null, null, null, null, null);
 INSERT INTO `orders` VALUES ('12', '2', null, 'user3@gmail.com', '2023-05-13 15:41:17', 'completed', '4pm/10/5/2023', null, null, null, null, null);
 INSERT INTO `orders` VALUES ('14', '2', null, 'user3@gmail.com', '2023-05-13 15:48:28', 'accepted', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('17', '2', null, 'user3@gmail.com', '2023-05-13 15:31:04', 'pending', '4pm/10/5/2023', null, null, null, null, null);
+INSERT INTO `orders` VALUES ('17', '2', null, 'user3@gmail.com', '2023-05-13 17:25:35', 'withdraw', '4pm/10/5/2023', null, null, null, null, null);
 INSERT INTO `orders` VALUES ('19', '2', null, 'user3@gmail.com', '2023-05-13 15:31:06', 'pending', '4pm/10/5/2023', null, null, null, null, null);
 INSERT INTO `orders` VALUES ('20', '2', null, 'user3@gmail.com', '2023-05-13 15:31:07', 'pending', '4pm/10/5/2023', null, 'test', null, null, null);
 INSERT INTO `orders` VALUES ('21', '2', null, 'user3@gmail.com', '2023-05-13 15:31:11', 'pending', '4pm/10/5/2023', null, 'test1', 'test2', 'test3', 'test4');

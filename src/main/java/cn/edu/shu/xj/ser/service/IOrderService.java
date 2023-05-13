@@ -49,4 +49,10 @@ public interface IOrderService extends IService<Order> {
     public List<LinkedHashMap<Object, Object>> acceptedList(String pid);
 
     public List<LinkedHashMap<Object, Object>> completedList(String pid);
+
+    public List<LinkedHashMap<Object, Object>> withdrawList(String pid);
+
+    public List<LinkedHashMap<Object, Object>> userWithdrawList(String uid);
+
+    public boolean userWithdraw(Integer oid);
 }

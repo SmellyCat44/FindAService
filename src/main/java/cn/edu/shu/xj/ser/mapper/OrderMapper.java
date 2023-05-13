@@ -74,17 +74,26 @@ public interface OrderMapper extends BaseMapper<Order> {
     @Select("select * from orders a, services b where a.service_id = b.service_id and a.order_status='completed'")
     List<LinkedHashMap<Object, Object>> userCompletedList(String uid);
 
+    @Select("select * from orders a, services b where a.service_id = b.service_id and a.order_status='withdraw'")
+    List<LinkedHashMap<Object, Object>> userWithdrawList(String uid);
+
     @Select("select * from orders a, services b where a.service_id = b.service_id and b.provider_id = #{provider_id} and order_status='pending'")
     List<LinkedHashMap<Object,Object>> requestList(@Param("provider_id")String pid);
 
     @Select("select * from orders a, services b where a.service_id = b.service_id and b.provider_id = #{provider_id} and order_status='rejected'")
-    List<LinkedHashMap<Object, Object>> rejectedList(String pid);
+    List<LinkedHashMap<Object, Object>> rejectedList(@Param("provider_id")String pid);
 
     @Select("select * from orders a, services b where a.service_id = b.service_id and b.provider_id = #{provider_id} and order_status='accepted'")
-    List<LinkedHashMap<Object, Object>> acceptedList(String pid);
+    List<LinkedHashMap<Object, Object>> acceptedList(@Param("provider_id")String pid);
 
     @Select("select * from orders a, services b where a.service_id = b.service_id and b.provider_id = #{provider_id} and order_status='completed'")
-    List<LinkedHashMap<Object, Object>> completedList(String pid);
+    List<LinkedHashMap<Object, Object>> completedList(@Param("provider_id")String pid);
+
+    @Select("select * from orders a, services b where a.service_id = b.service_id and b.provider_id = #{provider_id} and order_status='withdraw'")
+    List<LinkedHashMap<Object, Object>> withdrawList(@Param("provider_id")String pid);
+
+    @Update("update orders set order_status='withdraw' where order_id = #{order_id}")
+    boolean userWithdraw(@Param("order_id")Integer oid);
 
 
 //    @Select("select * from address where user_id =#{uid}")

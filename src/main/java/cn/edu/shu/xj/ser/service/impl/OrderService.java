@@ -84,6 +84,10 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> implements IOr
         return orderMapper.userCompletedList(uid);
     }
 
+    public List<LinkedHashMap<Object, Object>> userWithdrawList(String uid){
+        return orderMapper.userWithdrawList(uid);
+    }
+
     public List<LinkedHashMap<Object, Object>> rejectedList(String pid){
         return orderMapper.rejectedList(pid);
     }
@@ -95,4 +99,13 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> implements IOr
     public List<LinkedHashMap<Object, Object>> completedList(String pid){
         return orderMapper.completedList(pid);
     }
+
+    public List<LinkedHashMap<Object, Object>> withdrawList(String pid){
+        return orderMapper.withdrawList(pid);
+    }
+
+    public boolean userWithdraw(Integer oid){
+        return orderMapper.userWithdraw(oid);
+    }
+
 }
