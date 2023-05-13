@@ -35,4 +35,18 @@ public interface IOrderService extends IService<Order> {
     public boolean userConfirmFinish(Integer oid);
 
     public int getOidNow();
+
+    public List<LinkedHashMap<Object, Object>> userPendingList(String uid);
+
+    public List<LinkedHashMap<Object, Object>> userRejectedList(String uid);
+
+    public List<LinkedHashMap<Object, Object>> userAcceptedList(String uid);
+
+    public List<LinkedHashMap<Object, Object>> userCompletedList(String uid);
+
+    public List<LinkedHashMap<Object, Object>> rejectedList(String pid);
+
+    public List<LinkedHashMap<Object, Object>> acceptedList(String pid);
+
+    public List<LinkedHashMap<Object, Object>> completedList(String pid);
 }

@@ -35,12 +35,6 @@ public class OrderController {
         return orderService.userRequest(uid, sid, dt, d1);
     }
 
-    @ApiOperation(value = "request_list_for_provider")
-    @PostMapping("/request_list")
-    public List<LinkedHashMap<Object,Object>> requestList(@RequestParam(value = "provider_id") String pid){
-        return orderService.requestList(pid);
-    }
-
     @ApiOperation(value = "provider_reject_user_request")
     @PostMapping("/provider_reject")
     public boolean providerReject(@RequestParam(value = "order_id") Integer oid){
@@ -103,13 +97,66 @@ public class OrderController {
 
     }
 
-    @ApiOperation(value = "user_confirm_order")
-    @PostMapping("/user_confirm_finish")
+    @ApiOperation(value = "provider_confirm_order")
+    @PostMapping("/provider_confirm_finish")
     public boolean userConfirmFinish(@RequestParam(value = "order_id") Integer oid){
         Order oneOrder = orderService.getById(oid);
         if (oneOrder==null) return false;
-        if (oneOrder.getOrderStatus()==2) return orderService.userConfirmFinish(oid);
+        if (oneOrder.getOrderStatus().equals("accepted")) return orderService.userConfirmFinish(oid);
         else return false;
+    }
+
+    //pending, rejected, accepted, completed
+
+    //list for user himself
+    @ApiOperation(value = "user_pending_list")
+    @PostMapping("/user_pending_list")
+    public List<LinkedHashMap<Object,Object>> userPendingList(@RequestParam(value = "user_id") String uid){
+        return orderService.userPendingList(uid);
+    }
+
+    @ApiOperation(value = "user_rejected_list")
+    @PostMapping("/user_rejected_list")
+    public List<LinkedHashMap<Object,Object>> userRejectedList(@RequestParam(value = "user_id") String uid){
+        return orderService.userRejectedList(uid);
+    }
+
+    @ApiOperation(value = "user_accepted_list")
+    @PostMapping("/user_accepted_list")
+    public List<LinkedHashMap<Object,Object>> userAcceptedList(@RequestParam(value = "user_id") String uid){
+        return orderService.userAcceptedList(uid);
+    }
+
+    @ApiOperation(value = "user_completed_list")
+    @PostMapping("/user_completed_list")
+    public List<LinkedHashMap<Object,Object>> userCompletedList(@RequestParam(value = "user_id") String uid){
+        return orderService.userCompletedList(uid);
+    }
+
+    //pending, rejected, accepted, completed
+    //list for provider himself
+    @ApiOperation(value = "request_list_for_provider_pending")
+    @PostMapping("/request_list")
+    public List<LinkedHashMap<Object,Object>> requestList(@RequestParam(value = "provider_id") String pid){
+        return orderService.requestList(pid);
+    }
+
+    @ApiOperation(value = "provider_rejected_list")
+    @PostMapping("/rejected_list")
+    public List<LinkedHashMap<Object,Object>> rejectedList(@RequestParam(value = "provider_id") String pid){
+        return orderService.rejectedList(pid);
+    }
+
+    @ApiOperation(value = "provider_rejected_list")
+    @PostMapping("/accepted_list")
+    public List<LinkedHashMap<Object,Object>> acceptedList(@RequestParam(value = "provider_id") String pid){
+        return orderService.acceptedList(pid);
+    }
+
+    @ApiOperation(value = "provider_completed_list")
+    @PostMapping("/completed_list")
+    public List<LinkedHashMap<Object,Object>> completedList(@RequestParam(value = "provider_id") String pid){
+        return orderService.completedList(pid);
     }
 
 }

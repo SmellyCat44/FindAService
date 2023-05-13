@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50514
 File Encoding         : 65001
 
-Date: 2023-05-13 13:29:38
+Date: 2023-05-13 15:52:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -40,7 +40,7 @@ CREATE TABLE `orders` (
   `review_id` int(11) DEFAULT NULL,
   `user_id` varchar(100) NOT NULL,
   `order_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `order_status` int(11) NOT NULL,
+  `order_status` varchar(30) NOT NULL,
   `detail_time` varchar(100) NOT NULL,
   `detail_add` varchar(100) DEFAULT NULL,
   `order_detail1` varchar(1000) DEFAULT NULL,
@@ -59,17 +59,17 @@ CREATE TABLE `orders` (
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('1', '1', null, 'user1@gmail.com', '2023-05-12 14:52:39', '-1', '4pm/10/5/2023', 'lo140ge', null, null, null, null);
-INSERT INTO `orders` VALUES ('2', '2', null, 'user2@gmail.com', '2023-05-12 15:19:13', '-1', '4pm/10/5/2023', 'so14 0ge', null, null, null, null);
-INSERT INTO `orders` VALUES ('3', '2', null, 'user3@gmail.com', '2023-05-12 20:12:44', '0', '4pm/10/5/2023', null, 'dfghjfcsldvnls', 'test2', 'test3', 'test4');
-INSERT INTO `orders` VALUES ('5', '1', null, 'user3@gmail.com', '2023-05-12 22:28:01', '6', '4pm/10/5/2023', null, 'cfvbnmcdsvjhbdvabkdjvn;akdsvn;alkdlvk', 'test2/4', 'test3', 'test2/4');
-INSERT INTO `orders` VALUES ('10', '2', null, 'user3@gmail.com', '2023-05-11 19:26:45', '1', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('12', '2', null, 'user3@gmail.com', '2023-05-11 19:27:16', '1', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('14', '2', null, 'user3@gmail.com', '2023-05-11 19:37:17', '1', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('17', '2', null, 'user3@gmail.com', '2023-05-11 19:38:10', '1', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('19', '2', null, 'user3@gmail.com', '2023-05-11 19:41:42', '1', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('20', '2', null, 'user3@gmail.com', '2023-05-12 18:19:20', '1', '4pm/10/5/2023', null, 'test', null, null, null);
-INSERT INTO `orders` VALUES ('21', '2', null, 'user3@gmail.com', '2023-05-13 13:28:44', '1', '4pm/10/5/2023', null, 'test1', 'test2', 'test3', 'test4');
+INSERT INTO `orders` VALUES ('1', '1', null, 'user1@gmail.com', '2023-05-13 15:52:07', 'rejected', '4pm/10/5/2023', 'lo140ge', null, null, null, null);
+INSERT INTO `orders` VALUES ('2', '2', null, 'user2@gmail.com', '2023-05-13 15:52:12', 'rejected', '4pm/10/5/2023', 'so14 0ge', null, null, null, null);
+INSERT INTO `orders` VALUES ('3', '2', null, 'user3@gmail.com', '2023-05-13 15:52:18', 'completed', '4pm/10/5/2023', null, 'dfghjfcsldvnls', 'test2', 'test3', 'test4');
+INSERT INTO `orders` VALUES ('5', '1', null, 'user3@gmail.com', '2023-05-13 15:52:24', 'completed', '4pm/10/5/2023', null, 'cfvbnmcdsvjhbdvabkdjvn;akdsvn;alkdlvk', 'test2/4', 'test3', 'test2/4');
+INSERT INTO `orders` VALUES ('10', '2', null, 'user3@gmail.com', '2023-05-13 15:33:46', 'rejected', '4pm/10/5/2023', null, null, null, null, null);
+INSERT INTO `orders` VALUES ('12', '2', null, 'user3@gmail.com', '2023-05-13 15:41:17', 'completed', '4pm/10/5/2023', null, null, null, null, null);
+INSERT INTO `orders` VALUES ('14', '2', null, 'user3@gmail.com', '2023-05-13 15:48:28', 'accepted', '4pm/10/5/2023', null, null, null, null, null);
+INSERT INTO `orders` VALUES ('17', '2', null, 'user3@gmail.com', '2023-05-13 15:31:04', 'pending', '4pm/10/5/2023', null, null, null, null, null);
+INSERT INTO `orders` VALUES ('19', '2', null, 'user3@gmail.com', '2023-05-13 15:31:06', 'pending', '4pm/10/5/2023', null, null, null, null, null);
+INSERT INTO `orders` VALUES ('20', '2', null, 'user3@gmail.com', '2023-05-13 15:31:07', 'pending', '4pm/10/5/2023', null, 'test', null, null, null);
+INSERT INTO `orders` VALUES ('21', '2', null, 'user3@gmail.com', '2023-05-13 15:31:11', 'pending', '4pm/10/5/2023', null, 'test1', 'test2', 'test3', 'test4');
 
 -- ----------------------------
 -- Table structure for review

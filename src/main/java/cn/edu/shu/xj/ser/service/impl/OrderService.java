@@ -67,4 +67,32 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> implements IOr
     public int getOidNow(){
         return orderMapper.getOidNow();
     }
+
+    public List<LinkedHashMap<Object, Object>> userPendingList(String uid){
+        return orderMapper.userPendingList(uid);
+    }
+
+    public List<LinkedHashMap<Object, Object>> userRejectedList(String uid){
+        return orderMapper.userRejectedList(uid);
+    }
+
+    public List<LinkedHashMap<Object, Object>> userAcceptedList(String uid){
+        return orderMapper.userAcceptedList(uid);
+    }
+
+    public List<LinkedHashMap<Object, Object>> userCompletedList(String uid){
+        return orderMapper.userCompletedList(uid);
+    }
+
+    public List<LinkedHashMap<Object, Object>> rejectedList(String pid){
+        return orderMapper.rejectedList(pid);
+    }
+
+    public List<LinkedHashMap<Object, Object>> acceptedList(String pid){
+        return orderMapper.acceptedList(pid);
+    }
+
+    public List<LinkedHashMap<Object, Object>> completedList(String pid){
+        return orderMapper.completedList(pid);
+    }
 }

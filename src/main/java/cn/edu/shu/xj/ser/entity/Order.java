@@ -16,7 +16,8 @@ public class Order {
     private String userId;
     private Integer reviewId;
     private Timestamp orderTime;
-    private Integer orderStatus;
+    //pending, rejected, accepted, completed
+    private String orderStatus;
     private String detailTime;
     private String detailAdd;
     private String orderDetail1;
