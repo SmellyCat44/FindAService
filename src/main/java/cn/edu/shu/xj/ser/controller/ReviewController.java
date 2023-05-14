@@ -80,4 +80,10 @@ public class ReviewController {
         return reviewService.loadReviewsAreaCategory(sa,ca);
     }
 
+    @ApiOperation(value = "load_reviews_by_provider")
+    @PostMapping("/load_reviews_by_provider")
+    public List<LinkedHashMap<Review,Service>> loadReviewsByProvider(@RequestParam(value = "provider_id")String pid){
+        return reviewService.loadReviewsByProvider(pid);
+    }
+
 }

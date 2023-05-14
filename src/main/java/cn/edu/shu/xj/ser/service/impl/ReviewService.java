@@ -39,4 +39,7 @@ public class ReviewService extends ServiceImpl<ReviewMapper, Review> implements 
         return reviewMapper.loadReviewsAreaCategory(sa,ca);
     }
 
+    public List<LinkedHashMap<Review, cn.edu.shu.xj.ser.entity.Service>> loadReviewsByProvider(String pid){
+        return reviewMapper.loadReviewsByProvider(pid);
+    }
 }

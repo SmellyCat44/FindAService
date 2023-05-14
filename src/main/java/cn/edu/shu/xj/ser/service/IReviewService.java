@@ -17,4 +17,6 @@ public interface IReviewService extends IService<Review> {
     public List<Review> loadReviews(Integer sid);
 
     public List<LinkedHashMap<Review, Service>> loadReviewsAreaCategory(String sa, String ca);
+
+    public List<LinkedHashMap<Review, Service>> loadReviewsByProvider(String pid);
 }

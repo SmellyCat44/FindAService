@@ -75,5 +75,13 @@ public class ServiceproviderController {
         return serviceproviderService.adminRequest(pid);
     }
 
+    @ApiOperation(value = "admin_delete_provider")
+    @PostMapping("/admin_delete_provider")
+    public boolean adminDeleteProvider(@RequestParam(value = "provider_id") String pid){
+        Serviceprovider onesp = serviceproviderService.getById(pid);
+        if(onesp == null) return false;
+        if (onesp.getVerified()==1)  return serviceproviderService.removeById(pid);
+        else return false;
+    }
 
 }
