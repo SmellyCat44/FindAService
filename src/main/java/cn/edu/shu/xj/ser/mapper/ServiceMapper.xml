@@ -12,5 +12,6 @@
         <result column="service_category" property="serviceCategory"/>
         <result column="availability" property="availability"/>
         <result column="provider_email" property="providerEmail"/>
+        <result column="avg_score" property="avgScore"/>
     </resultMap>
 </mapper>

@@ -20,4 +20,5 @@ public class Service {
     private String availability;
     private String serviceCategory;
     private String providerEmail;
+    private Double avgScore;
 }

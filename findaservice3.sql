@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50514
 File Encoding         : 65001
 
-Date: 2023-05-13 17:26:29
+Date: 2023-05-14 19:09:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,7 +54,7 @@ CREATE TABLE `orders` (
   CONSTRAINT `FK_have` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`),
   CONSTRAINT `FK_include2` FOREIGN KEY (`review_id`) REFERENCES `review` (`review_id`),
   CONSTRAINT `FK_place` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orders
@@ -68,8 +68,9 @@ INSERT INTO `orders` VALUES ('12', '2', null, 'user3@gmail.com', '2023-05-13 15:
 INSERT INTO `orders` VALUES ('14', '2', null, 'user3@gmail.com', '2023-05-13 15:48:28', 'accepted', '4pm/10/5/2023', null, null, null, null, null);
 INSERT INTO `orders` VALUES ('17', '2', null, 'user3@gmail.com', '2023-05-13 17:25:35', 'withdraw', '4pm/10/5/2023', null, null, null, null, null);
 INSERT INTO `orders` VALUES ('19', '2', null, 'user3@gmail.com', '2023-05-13 15:31:06', 'pending', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('20', '2', null, 'user3@gmail.com', '2023-05-13 15:31:07', 'pending', '4pm/10/5/2023', null, 'test', null, null, null);
-INSERT INTO `orders` VALUES ('21', '2', null, 'user3@gmail.com', '2023-05-13 15:31:11', 'pending', '4pm/10/5/2023', null, 'test1', 'test2', 'test3', 'test4');
+INSERT INTO `orders` VALUES ('20', '2', null, 'user3@gmail.com', '2023-05-14 14:54:33', 'completed', '4pm/10/5/2023', null, 'test', null, null, null);
+INSERT INTO `orders` VALUES ('21', '2', null, 'user3@gmail.com', '2023-05-14 14:54:35', 'completed', '4pm/10/5/2023', null, 'test1', 'test2', 'test3', 'test4');
+INSERT INTO `orders` VALUES ('22', '2', null, 'user1@gmail.com', '2023-05-14 11:31:24', 'accepted', '14/5/2023', null, 'test1', null, null, null);
 
 -- ----------------------------
 -- Table structure for review
@@ -89,12 +90,14 @@ CREATE TABLE `review` (
   CONSTRAINT `FK_belong` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`),
   CONSTRAINT `FK_give` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
   CONSTRAINT `FK_include` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of review
 -- ----------------------------
 INSERT INTO `review` VALUES ('2', '2', 'user1@gmail.com', '3', '4', 'good');
+INSERT INTO `review` VALUES ('9', '2', 'user1@gmail.com', '12', '4', 'good');
+INSERT INTO `review` VALUES ('10', '1', 'user1@gmail.com', '21', '4', 'fine');
 
 -- ----------------------------
 -- Table structure for serviceprovider
@@ -112,7 +115,7 @@ CREATE TABLE `serviceprovider` (
 -- ----------------------------
 -- Records of serviceprovider
 -- ----------------------------
-INSERT INTO `serviceprovider` VALUES ('provider1@gmail.com', 'provider1', 'so14 0ge', 'provider1', '2');
+INSERT INTO `serviceprovider` VALUES ('provider1@gmail.com', 'provider1', 'so14 0ge', 'provider1', '1');
 INSERT INTO `serviceprovider` VALUES ('provider2@gmail.com', 'provider2', 'so14 0gf', 'provider2', '0');
 INSERT INTO `serviceprovider` VALUES ('provider3@gmail.com', 'provider3', 'so14 0gg', 'provider3', '0');
 
@@ -131,16 +134,18 @@ CREATE TABLE `services` (
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `provider_email` varchar(100) NOT NULL,
   `service_category` varchar(50) NOT NULL,
+  `avg_score` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`service_id`),
   KEY `FK_provide` (`provider_id`),
   CONSTRAINT `FK_provide` FOREIGN KEY (`provider_id`) REFERENCES `serviceprovider` (`provider_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of services
 -- ----------------------------
-INSERT INTO `services` VALUES ('1', 'provider1@gmail.com', 'room_cleaning_service', null, '100', 'London', ' weekdays', '1', 'provider1@gmail.com', 'Cleaning');
-INSERT INTO `services` VALUES ('2', 'provider1@gmail.com', 'babysitting_service', null, '99', 'Southampton', ' 24/7', '1', 'provider1@gmail.com', 'Baby Sitting');
+INSERT INTO `services` VALUES ('1', 'provider1@gmail.com', 'room_cleaning_service', null, '100', 'London', ' weekdays', '1', 'provider1@gmail.com', 'Cleaning', '4');
+INSERT INTO `services` VALUES ('2', 'provider1@gmail.com', 'babysitting_service', null, '99', 'Southampton', ' 24/7', '1', 'provider1@gmail.com', 'Baby Sitting', '4');
+INSERT INTO `services` VALUES ('3', 'provider1@gmail.com', 'test for verification', null, '100', '1', '7/24', '0', 'provider1@gmail.com', 'Cleaning', '0');
 
 -- ----------------------------
 -- Table structure for users

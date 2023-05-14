@@ -53,4 +53,11 @@ public interface ServiceMapper extends BaseMapper<Service> {
 
     @Select("select * from review a, services b where a.service_id = b.service_id and b.service_area=#{service_area} and b.service_category=#{service_category}")
     List<LinkedHashMap<Review, Service>> searchByAreaCategoryWithReview(@Param("service_area")String sa, @Param("service_category")String sc);
+
+    @Update("update services \n" +
+            "INNER JOIN(select AVG(score) a,service_id\n" +
+            "from review\n" +
+            "group by service_id) b ON services.service_id = b.service_id\n" +
+            "SET services.avg_score = b.a")
+    void updateavgScore();
 }

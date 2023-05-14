@@ -21,4 +21,6 @@ public interface IServiceService extends IService<Service> {
     public Service searchById(Integer sid);
 
     public List<LinkedHashMap<Review, Service>> searchByAreaCategoryWithReview(String sa, String sc);
+
+    public void updateavgScore();
 }

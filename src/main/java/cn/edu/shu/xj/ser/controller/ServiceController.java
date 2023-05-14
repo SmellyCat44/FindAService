@@ -81,6 +81,8 @@ public class ServiceController {
     @ApiOperation(value = "search_by_area_category")
     @PostMapping("/search_by_area_category")
     public List<Service> searchByAreaCategory(@RequestParam(value = "service_area") String sa, @RequestParam(value = "service_category") String sc){
+//        update the avgScore
+        serviceService.updateavgScore();
         return serviceService.searchByAreaCategory(sa,sc);
     }
 

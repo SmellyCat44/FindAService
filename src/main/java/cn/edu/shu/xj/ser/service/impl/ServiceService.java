@@ -54,4 +54,8 @@ public class ServiceService extends ServiceImpl<ServiceMapper, cn.edu.shu.xj.ser
         return serviceMapper.searchByAreaCategoryWithReview(sa,sc);
     }
 
+    public void updateavgScore(){
+        serviceMapper.updateavgScore();
+    }
+
 }
