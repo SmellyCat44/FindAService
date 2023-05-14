@@ -31,6 +31,7 @@ public class ReviewController {
     public boolean giveReview(@RequestParam(value = "user_id")String uid, @RequestParam(value = "service_id")Integer sid, @RequestParam(value = "order_id")Integer oid, @RequestParam(value = "score")Integer sc, @RequestParam(value = "content")String ct){
         Order oneorder  = orderService.getById(oid);
         if(oneorder==null) return false;
+        if(oneorder.getOrderStatus()=="completed") return false;
         return reviewService.giveReview(sid,uid,oid,sc,ct);
     }
 
