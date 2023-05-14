@@ -31,7 +31,7 @@ public interface ReviewMapper extends BaseMapper<Review> {
     @Select("select * from review where service_id=#{service_id}")
     List<Review> loadReviews(@Param("service_id")Integer sid);
 
-    @Select("select * from review a, services b where a.service_id = b.service_id")
+    @Select("select * from review a, services b where a.service_id = b.service_id and b.service_area = #{service_area} and b.service_category=#{service_category}")
     List<LinkedHashMap<Review, Service>> loadReviewsAreaCategory(@Param("service_area")String sa, @Param("service_category")String ca);
 
     @Select("select * FROM review a, services c where a.service_id = c.service_id and c.provider_id =#{provider_id}")
