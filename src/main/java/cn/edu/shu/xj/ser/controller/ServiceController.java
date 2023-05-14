@@ -2,7 +2,9 @@ package cn.edu.shu.xj.ser.controller;
 
 import cn.edu.shu.xj.ser.entity.Review;
 import cn.edu.shu.xj.ser.entity.Service;
+import cn.edu.shu.xj.ser.entity.Serviceprovider;
 import cn.edu.shu.xj.ser.service.IServiceService;
+import cn.edu.shu.xj.ser.service.IServiceproviderService;
 import cn.edu.shu.xj.ser.service.impl.ServiceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,10 +23,18 @@ public class ServiceController {
     @Autowired
     IServiceService serviceService;
 
+    @Autowired
+    IServiceproviderService serviceproviderService;
+
     @ApiOperation(value = "add_service/modify_service")
     @PostMapping("/save")
-    public boolean register(@RequestBody Service service){
-        return serviceService.saveOrUpdate(service);
+    public String register(@RequestBody Service service){
+        String pid = service.getProviderId();
+        Serviceprovider oneProvider = serviceproviderService.findSpbyId(pid);
+        if (oneProvider == null) return "provider Id does not exist!";
+        if(oneProvider.getVerified()!=1) return  "provider is not verified!";
+        serviceService.saveOrUpdate(service);
+        return "service added successfully!";
     }
 
     @ApiOperation(value = "user_browse_services")
