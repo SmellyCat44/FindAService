@@ -93,5 +93,13 @@ public class ServiceproviderController {
         else return false;
     }
 
+    @ApiOperation(value = "get_provider_verified")
+    @PostMapping("/get_provider_verified")
+    public Integer getProviderVerified(@RequestParam(value = "provider_id") String pid){
+        Serviceprovider onesp = serviceproviderService.getById(pid);
+        if(onesp == null) return -99;//it means the service_provider does not exist
+        else return onesp.getVerified();
+    }
+
 
 }

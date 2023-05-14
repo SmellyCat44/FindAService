@@ -14,4 +14,5 @@ public class Serviceprovider {
     private String providerAdd;
     private String description;
     private Integer verified;
+    private Double avgScore;
 }

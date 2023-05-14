@@ -8,5 +8,6 @@
         <result column="description" property="description"/>
         <result column="provider_add" property="providerAdd"/>
         <result column="verified" property="verified"/>
+        <result column="avg_score" property="avgScore"/>
     </resultMap>
 </mapper>
