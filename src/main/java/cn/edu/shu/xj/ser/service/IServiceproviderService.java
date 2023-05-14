@@ -17,4 +17,8 @@ public interface IServiceproviderService extends IService<Serviceprovider> {
     public int adminRequest(String pid);
 
     public boolean providerUpdateRequest(String pid, String des);
+
+    public void updateavgScore();
+
+    public List<Serviceprovider> Verifiedlist();
 }

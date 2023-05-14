@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50514
 File Encoding         : 65001
 
-Date: 2023-05-14 19:09:11
+Date: 2023-05-15 00:25:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -109,15 +109,16 @@ CREATE TABLE `serviceprovider` (
   `provider_add` varchar(50) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `verified` int(11) NOT NULL DEFAULT '0',
+  `avg_score` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`provider_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of serviceprovider
 -- ----------------------------
-INSERT INTO `serviceprovider` VALUES ('provider1@gmail.com', 'provider1', 'so14 0ge', 'provider1', '1');
-INSERT INTO `serviceprovider` VALUES ('provider2@gmail.com', 'provider2', 'so14 0gf', 'provider2', '0');
-INSERT INTO `serviceprovider` VALUES ('provider3@gmail.com', 'provider3', 'so14 0gg', 'provider3', '0');
+INSERT INTO `serviceprovider` VALUES ('provider1@gmail.com', 'provider1', 'so14 0ge', 'provider1', '1', '2.6666666666666665');
+INSERT INTO `serviceprovider` VALUES ('provider2@gmail.com', 'provider2', 'so14 0gf', 'provider2', '0', '0');
+INSERT INTO `serviceprovider` VALUES ('provider3@gmail.com', 'provider3', 'so14 0gg', 'test2', '0', '0');
 
 -- ----------------------------
 -- Table structure for services

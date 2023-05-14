@@ -36,4 +36,12 @@ public class ServiceproviderService extends ServiceImpl<ServiceproviderMapper, S
     public boolean providerUpdateRequest(String pid, String des){
         return serviceproviderMapper.providerUpdateRequest(pid,des);
     }
+
+    public void updateavgScore(){
+        serviceproviderMapper.updateavgScore();
+    }
+
+    public List<Serviceprovider> Verifiedlist(){
+        return serviceproviderMapper.Verifiedlist();
+    }
 }

@@ -101,5 +101,10 @@ public class ServiceproviderController {
         else return onesp.getVerified();
     }
 
-
+    @ApiOperation(value = "get_verified_provider_list")
+    @GetMapping("/get_verified_provider_list")
+    public List<Serviceprovider> getVerifiedProviderList(){
+        serviceproviderService.updateavgScore();
+        return serviceproviderService.Verifiedlist();
+    }
 }
