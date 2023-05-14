@@ -84,4 +84,14 @@ public class ServiceproviderController {
         else return false;
     }
 
+    @ApiOperation(value = "provider_update_request")
+    @PostMapping("/provider_update_request")
+    public boolean providerUpdateRequest(@RequestParam(value = "provider_id") String pid, @RequestParam(value = "description") String des){
+        Serviceprovider onesp = serviceproviderService.getById(pid);
+        if(onesp == null) return false;
+        if (onesp.getVerified()==2) return serviceproviderService.providerUpdateRequest(pid,des);
+        else return false;
+    }
+
+
 }

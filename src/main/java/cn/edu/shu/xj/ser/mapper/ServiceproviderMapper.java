@@ -28,4 +28,7 @@ public interface ServiceproviderMapper extends BaseMapper<Serviceprovider> {
 
     @Update("update serviceprovider set verified = 2 where provider_id = #{provider_id}")
     int adminRequest(@Param("provider_id")String pid);
+
+    @Update("update serviceprovider set verified = 0,description = #{description} where provider_id = #{provider_id}")
+    boolean providerUpdateRequest(@Param("provider_id")String pid, @Param("description")String des);
 }

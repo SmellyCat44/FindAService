@@ -32,4 +32,8 @@ public class ServiceproviderService extends ServiceImpl<ServiceproviderMapper, S
     public int adminRequest(String pid){
         return serviceproviderMapper.adminRequest(pid);
     }
+
+    public boolean providerUpdateRequest(String pid, String des){
+        return serviceproviderMapper.providerUpdateRequest(pid,des);
+    }
 }

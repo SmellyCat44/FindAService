@@ -1,6 +1,5 @@
 package cn.edu.shu.xj.ser.service;
 
-import cn.edu.shu.xj.ser.entity.Service;
 import cn.edu.shu.xj.ser.entity.Serviceprovider;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -16,4 +15,6 @@ public interface IServiceproviderService extends IService<Serviceprovider> {
     public int adminReject(String pid);
 
     public int adminRequest(String pid);
+
+    public boolean providerUpdateRequest(String pid, String des);
 }
