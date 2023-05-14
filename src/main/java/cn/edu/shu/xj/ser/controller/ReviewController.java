@@ -32,6 +32,7 @@ public class ReviewController {
         Order oneorder  = orderService.getById(oid);
         if(oneorder==null) return false;
         if(oneorder.getOrderStatus()=="completed") return false;
+        if (ct==null) return reviewService.giveReviewWithoutContent(sid,uid,oid,sc);
         return reviewService.giveReview(sid,uid,oid,sc,ct);
     }
 
