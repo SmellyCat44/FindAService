@@ -20,9 +20,9 @@ public interface OrderMapper extends BaseMapper<Order> {
     //pending, rejected, accepted, completed
 
 
-    @Insert("INSERT INTO orders (service_id, user_id, order_time, order_status, detail_time, order_detail1)\n" +
-            "VALUES (#{service_id}, #{user_id}, NOW(),'pending',#{detail_time},#{order_detail1});")
-    boolean userRequest(@Param("user_id") String uid, @Param("service_id") Integer sid, @Param("detail_time") String dt, @Param("order_detail1") String d1);
+    @Insert("INSERT INTO orders (service_id, user_id, order_time, order_status, detail_time, order_detail1, detail_add)\n" +
+            "VALUES (#{service_id}, #{user_id}, NOW(),'pending',#{detail_time},#{order_detail1},#{detail_add});")
+    boolean userRequest(@Param("user_id") String uid, @Param("service_id") Integer sid, @Param("detail_time") String dt, @Param("order_detail1") String d1, @Param("detail_add") String da);
 
 //    @Select("select a.user_id,a.service_id,a.order_time,a.order_status,a.order_id,a.detail_time,b.availability,b.price,b.service_description from orders a, services b where a.service_id = b.service_id and b.provider_id = #{provider_id}")
 

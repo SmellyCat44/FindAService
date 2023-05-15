@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface IOrderService extends IService<Order> {
 
-    public boolean userRequest(String uid, Integer sid, String dt, String d1);
+    public boolean userRequest(String uid, Integer sid, String dt, String d1, String da);
 
     public List<LinkedHashMap<Object,Object>> requestList(String pid);
 

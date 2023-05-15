@@ -29,10 +29,10 @@ public class OrderController {
 
     @ApiOperation(value = "user_request")
     @PostMapping("/user_request")
-    public boolean userRequest(@RequestParam(value = "user_id") String uid, @RequestParam(value = "service_id") Integer sid, @RequestParam(value = "detail_time")String dt, @RequestParam(value = "order_detail1")String d1){
+    public boolean userRequest(@RequestParam(value = "user_id") String uid, @RequestParam(value = "service_id") Integer sid, @RequestParam(value = "detail_time")String dt, @RequestParam(value = "order_detail1")String d1, @RequestParam(value = "detail_add")String da){
         Service oneService = serviceService.searchById(sid);
         if (oneService==null) return false;
-        return orderService.userRequest(uid, sid, dt, d1);
+        return orderService.userRequest(uid, sid, dt, d1, da);
     }
 
     @ApiOperation(value = "provider_reject_user_request")

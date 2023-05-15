@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50514
 File Encoding         : 65001
 
-Date: 2023-05-15 00:25:25
+Date: 2023-05-15 13:50:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,23 +54,24 @@ CREATE TABLE `orders` (
   CONSTRAINT `FK_have` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`),
   CONSTRAINT `FK_include2` FOREIGN KEY (`review_id`) REFERENCES `review` (`review_id`),
   CONSTRAINT `FK_place` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('1', '1', null, 'user1@gmail.com', '2023-05-13 15:52:07', 'rejected', '4pm/10/5/2023', 'lo140ge', null, null, null, null);
-INSERT INTO `orders` VALUES ('2', '2', null, 'user2@gmail.com', '2023-05-13 15:52:12', 'rejected', '4pm/10/5/2023', 'so14 0ge', null, null, null, null);
-INSERT INTO `orders` VALUES ('3', '2', null, 'user3@gmail.com', '2023-05-13 15:52:18', 'completed', '4pm/10/5/2023', null, 'dfghjfcsldvnls', 'test2', 'test3', 'test4');
-INSERT INTO `orders` VALUES ('5', '1', null, 'user3@gmail.com', '2023-05-13 15:52:24', 'completed', '4pm/10/5/2023', null, 'cfvbnmcdsvjhbdvabkdjvn;akdsvn;alkdlvk', 'test2/4', 'test3', 'test2/4');
-INSERT INTO `orders` VALUES ('10', '2', null, 'user3@gmail.com', '2023-05-13 15:33:46', 'rejected', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('12', '2', null, 'user3@gmail.com', '2023-05-13 15:41:17', 'completed', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('14', '2', null, 'user3@gmail.com', '2023-05-13 15:48:28', 'accepted', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('17', '2', null, 'user3@gmail.com', '2023-05-13 17:25:35', 'withdraw', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('19', '2', null, 'user3@gmail.com', '2023-05-13 15:31:06', 'pending', '4pm/10/5/2023', null, null, null, null, null);
-INSERT INTO `orders` VALUES ('20', '2', null, 'user3@gmail.com', '2023-05-14 14:54:33', 'completed', '4pm/10/5/2023', null, 'test', null, null, null);
-INSERT INTO `orders` VALUES ('21', '2', null, 'user3@gmail.com', '2023-05-14 14:54:35', 'completed', '4pm/10/5/2023', null, 'test1', 'test2', 'test3', 'test4');
-INSERT INTO `orders` VALUES ('22', '2', null, 'user1@gmail.com', '2023-05-14 11:31:24', 'accepted', '14/5/2023', null, 'test1', null, null, null);
+INSERT INTO `orders` VALUES ('1', '1', null, 'user1@gmail.com', '2023-05-15 13:50:20', 'rejected', '4pm/10/5/2023', 'London', null, null, null, null);
+INSERT INTO `orders` VALUES ('2', '2', null, 'user2@gmail.com', '2023-05-15 13:50:16', 'rejected', '4pm/10/5/2023', 'Southampton', null, null, null, null);
+INSERT INTO `orders` VALUES ('3', '2', null, 'user3@gmail.com', '2023-05-15 13:50:11', 'completed', '4pm/10/5/2023', 'Southampton', 'dfghjfcsldvnls', 'test2', 'test3', 'test4');
+INSERT INTO `orders` VALUES ('5', '1', null, 'user3@gmail.com', '2023-05-15 13:50:08', 'completed', '4pm/10/5/2023', 'London', 'cfvbnmcdsvjhbdvabkdjvn;akdsvn;alkdlvk', 'test2/4', 'test3', 'test2/4');
+INSERT INTO `orders` VALUES ('10', '2', null, 'user3@gmail.com', '2023-05-15 13:50:03', 'rejected', '4pm/10/5/2023', 'Southampton', null, null, null, null);
+INSERT INTO `orders` VALUES ('12', '2', null, 'user3@gmail.com', '2023-05-15 13:50:03', 'completed', '4pm/10/5/2023', 'Southampton', null, null, null, null);
+INSERT INTO `orders` VALUES ('14', '2', null, 'user3@gmail.com', '2023-05-15 13:50:02', 'accepted', '4pm/10/5/2023', 'Southampton', null, null, null, null);
+INSERT INTO `orders` VALUES ('17', '2', null, 'user3@gmail.com', '2023-05-15 13:50:01', 'withdraw', '4pm/10/5/2023', 'Southampton', null, null, null, null);
+INSERT INTO `orders` VALUES ('19', '2', null, 'user3@gmail.com', '2023-05-15 13:50:01', 'pending', '4pm/10/5/2023', 'Southampton', null, null, null, null);
+INSERT INTO `orders` VALUES ('20', '2', null, 'user3@gmail.com', '2023-05-15 13:50:00', 'completed', '4pm/10/5/2023', 'Southampton', 'test', null, null, null);
+INSERT INTO `orders` VALUES ('21', '2', null, 'user3@gmail.com', '2023-05-15 13:49:59', 'completed', '4pm/10/5/2023', 'Southampton', 'test1', 'test2', 'test3', 'test4');
+INSERT INTO `orders` VALUES ('22', '2', null, 'user1@gmail.com', '2023-05-15 13:49:58', 'accepted', '14/5/2023', 'Southampton', 'test1', null, null, null);
+INSERT INTO `orders` VALUES ('23', '2', null, 'user1@gmail.com', '2023-05-15 13:49:38', 'pending', '4pm/10/5/2023,14/5/2023', 'Southampton', 'test1', null, null, null);
 
 -- ----------------------------
 -- Table structure for review

@@ -17,8 +17,8 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> implements IOr
     @Autowired
     OrderMapper orderMapper;
 
-    public boolean userRequest(String uid, Integer sid, String dt, String d1){
-        return orderMapper.userRequest(uid,sid,dt,d1);
+    public boolean userRequest(String uid, Integer sid, String dt, String d1, String da){
+        return orderMapper.userRequest(uid,sid,dt,d1,da);
     }
 
     public List<LinkedHashMap<Object,Object>> requestList(String pid){
