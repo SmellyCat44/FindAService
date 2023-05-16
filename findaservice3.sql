@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50514
 File Encoding         : 65001
 
-Date: 2023-05-16 13:23:44
+Date: 2023-05-16 13:32:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -152,14 +152,17 @@ CREATE TABLE `services` (
   PRIMARY KEY (`service_id`),
   KEY `FK_provide` (`provider_id`),
   CONSTRAINT `FK_provide` FOREIGN KEY (`provider_id`) REFERENCES `serviceprovider` (`provider_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of services
 -- ----------------------------
 INSERT INTO `services` VALUES ('1', 'provider1@gmail.com', 'room_cleaning_service', null, '100', 'London', ' weekdays', '1', 'provider1@gmail.com', 'Cleaning', '4');
 INSERT INTO `services` VALUES ('2', 'provider1@gmail.com', 'babysitting_service', null, '99', 'Southampton', ' 24/7', '1', 'provider1@gmail.com', 'Baby Sitting', '4');
-INSERT INTO `services` VALUES ('3', 'provider2@gmail.com', 'very_good_plumbing', null, '100', 'Southampton', '7/24', '0', 'provider2@gmail.com', 'Plumbing', '0');
+INSERT INTO `services` VALUES ('3', 'provider2@gmail.com', 'very_good_plumbing', null, '100', 'Southampton', '7/24', '1', 'provider2@gmail.com', 'Plumbing', '0');
+INSERT INTO `services` VALUES ('4', 'provider1@gmail.com', 'pest_control_service!', null, '55', 'London', 'weekdays', '1', 'provider1@gmail.com', 'Pest Control', '0');
+INSERT INTO `services` VALUES ('5', 'provider2@gmail.com', 'electrical_repairs_magic', null, '80', 'Southampton', '7/24', '1', 'provider2@gmail.com', 'Electrical Repairs', '0');
+INSERT INTO `services` VALUES ('6', 'provider1@gmail.com', 'beauty_magic', null, '79', 'London', 'weekdays', '1', 'provider1@gmail.com', 'Beauty', '0');
 
 -- ----------------------------
 -- Table structure for users
