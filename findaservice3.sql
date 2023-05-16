@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50514
 File Encoding         : 65001
 
-Date: 2023-05-16 13:32:18
+Date: 2023-05-16 13:56:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -61,13 +61,13 @@ CREATE TABLE `orders` (
 -- ----------------------------
 INSERT INTO `orders` VALUES ('1', '1', null, 'user1@gmail.com', '2023-05-16 12:58:25', 'rejected', '4pm/10/5/2023', 'London', 'Hello, I need cleaning service.', '', null, null);
 INSERT INTO `orders` VALUES ('2', '2', null, 'user2@gmail.com', '2023-05-16 12:57:53', 'rejected', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', null, null, null);
-INSERT INTO `orders` VALUES ('3', '2', '13', 'user1@gmail.com', '2023-05-16 13:17:48', 'completed', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', 'hi, ok.', '', '');
-INSERT INTO `orders` VALUES ('5', '1', '14', 'user2@gmail.com', '2023-05-16 13:18:34', 'completed', '4pm/10/5/2023', 'London', 'Hello, I need cleaning service.', 'hi, ok.', 'please come to LO140GE.', 'ok.');
+INSERT INTO `orders` VALUES ('3', '2', null, 'user1@gmail.com', '2023-05-16 13:53:18', 'completed', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', 'hi, ok.', '', '');
+INSERT INTO `orders` VALUES ('5', '1', null, 'user2@gmail.com', '2023-05-16 13:53:19', 'completed', '4pm/10/5/2023', 'London', 'Hello, I need cleaning service.', 'hi, ok.', 'please come to LO140GE.', 'ok.');
 INSERT INTO `orders` VALUES ('10', '2', null, 'user1@gmail.com', '2023-05-16 13:04:38', 'accepted', '4pm/20/5/2023', 'Southampton', 'hello, I need babysitting service.', null, null, null);
-INSERT INTO `orders` VALUES ('12', '2', '15', 'user1@gmail.com', '2023-05-16 13:19:25', 'completed', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', 'hi, ok.', null, null);
+INSERT INTO `orders` VALUES ('12', '2', null, 'user1@gmail.com', '2023-05-16 13:53:20', 'completed', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', 'hi, ok.', null, null);
 INSERT INTO `orders` VALUES ('14', '2', null, 'user2@gmail.com', '2023-05-16 13:04:45', 'accepted', '4pm/20/5/2023', 'Southampton', 'hello, I need babysitting service.', 'hi, ok.', null, null);
-INSERT INTO `orders` VALUES ('17', '2', '16', 'user2@gmail.com', '2023-05-16 13:20:00', 'completed', '4pm/10/5/2023', 'Southampton', null, null, null, null);
-INSERT INTO `orders` VALUES ('20', '2', '17', 'user1@gmail.com', '2023-05-16 13:20:47', 'completed', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', 'ok.', null, null);
+INSERT INTO `orders` VALUES ('17', '2', null, 'user2@gmail.com', '2023-05-16 13:53:21', 'completed', '4pm/10/5/2023', 'Southampton', null, null, null, null);
+INSERT INTO `orders` VALUES ('20', '2', null, 'user1@gmail.com', '2023-05-16 13:53:22', 'completed', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', 'ok.', null, null);
 INSERT INTO `orders` VALUES ('21', '2', null, 'user2@gmail.com', '2023-05-16 13:05:46', 'completed', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', 'ok.', '', '');
 INSERT INTO `orders` VALUES ('22', '2', null, 'user1@gmail.com', '2023-05-16 13:06:59', 'accepted', '4pm/17/5/2023', 'Southampton', 'hello, I need babysitting service.', 'ok.', null, null);
 INSERT INTO `orders` VALUES ('23', '2', null, 'user2@gmail.com', '2023-05-16 13:07:02', 'accepted', '4pm/17/5/2023', 'Southampton', 'hello, I need babysitting service.', 'ok.', null, null);
@@ -128,9 +128,9 @@ CREATE TABLE `serviceprovider` (
 -- ----------------------------
 -- Records of serviceprovider
 -- ----------------------------
-INSERT INTO `serviceprovider` VALUES ('provider1@gmail.com', 'provider1', 'London', 'provider1', '1', '2.6666666666666665');
+INSERT INTO `serviceprovider` VALUES ('provider1@gmail.com', 'provider1', 'London', 'provider1', '1', '2');
 INSERT INTO `serviceprovider` VALUES ('provider2@gmail.com', 'provider2', 'Southampton', 'provider2', '1', '0');
-INSERT INTO `serviceprovider` VALUES ('provider3@gmail.com', 'provider3', 'London', 'provider3', '1', '0');
+INSERT INTO `serviceprovider` VALUES ('provider3@gmail.com', 'provider3', 'London', 'provider3', '0', '0');
 INSERT INTO `serviceprovider` VALUES ('provider4@gmail.com', 'provider4', 'Southampton', 'provider4', '0', '0');
 
 -- ----------------------------
