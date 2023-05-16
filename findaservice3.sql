@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50514
 File Encoding         : 65001
 
-Date: 2023-05-15 13:50:33
+Date: 2023-05-16 13:23:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,24 +54,29 @@ CREATE TABLE `orders` (
   CONSTRAINT `FK_have` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`),
   CONSTRAINT `FK_include2` FOREIGN KEY (`review_id`) REFERENCES `review` (`review_id`),
   CONSTRAINT `FK_place` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('1', '1', null, 'user1@gmail.com', '2023-05-15 13:50:20', 'rejected', '4pm/10/5/2023', 'London', null, null, null, null);
-INSERT INTO `orders` VALUES ('2', '2', null, 'user2@gmail.com', '2023-05-15 13:50:16', 'rejected', '4pm/10/5/2023', 'Southampton', null, null, null, null);
-INSERT INTO `orders` VALUES ('3', '2', null, 'user3@gmail.com', '2023-05-15 13:50:11', 'completed', '4pm/10/5/2023', 'Southampton', 'dfghjfcsldvnls', 'test2', 'test3', 'test4');
-INSERT INTO `orders` VALUES ('5', '1', null, 'user3@gmail.com', '2023-05-15 13:50:08', 'completed', '4pm/10/5/2023', 'London', 'cfvbnmcdsvjhbdvabkdjvn;akdsvn;alkdlvk', 'test2/4', 'test3', 'test2/4');
-INSERT INTO `orders` VALUES ('10', '2', null, 'user3@gmail.com', '2023-05-15 13:50:03', 'rejected', '4pm/10/5/2023', 'Southampton', null, null, null, null);
-INSERT INTO `orders` VALUES ('12', '2', null, 'user3@gmail.com', '2023-05-15 13:50:03', 'completed', '4pm/10/5/2023', 'Southampton', null, null, null, null);
-INSERT INTO `orders` VALUES ('14', '2', null, 'user3@gmail.com', '2023-05-15 13:50:02', 'accepted', '4pm/10/5/2023', 'Southampton', null, null, null, null);
-INSERT INTO `orders` VALUES ('17', '2', null, 'user3@gmail.com', '2023-05-15 13:50:01', 'withdraw', '4pm/10/5/2023', 'Southampton', null, null, null, null);
-INSERT INTO `orders` VALUES ('19', '2', null, 'user3@gmail.com', '2023-05-15 13:50:01', 'pending', '4pm/10/5/2023', 'Southampton', null, null, null, null);
-INSERT INTO `orders` VALUES ('20', '2', null, 'user3@gmail.com', '2023-05-15 13:50:00', 'completed', '4pm/10/5/2023', 'Southampton', 'test', null, null, null);
-INSERT INTO `orders` VALUES ('21', '2', null, 'user3@gmail.com', '2023-05-15 13:49:59', 'completed', '4pm/10/5/2023', 'Southampton', 'test1', 'test2', 'test3', 'test4');
-INSERT INTO `orders` VALUES ('22', '2', null, 'user1@gmail.com', '2023-05-15 13:49:58', 'accepted', '14/5/2023', 'Southampton', 'test1', null, null, null);
-INSERT INTO `orders` VALUES ('23', '2', null, 'user1@gmail.com', '2023-05-15 13:49:38', 'pending', '4pm/10/5/2023,14/5/2023', 'Southampton', 'test1', null, null, null);
+INSERT INTO `orders` VALUES ('1', '1', null, 'user1@gmail.com', '2023-05-16 12:58:25', 'rejected', '4pm/10/5/2023', 'London', 'Hello, I need cleaning service.', '', null, null);
+INSERT INTO `orders` VALUES ('2', '2', null, 'user2@gmail.com', '2023-05-16 12:57:53', 'rejected', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', null, null, null);
+INSERT INTO `orders` VALUES ('3', '2', '13', 'user1@gmail.com', '2023-05-16 13:17:48', 'completed', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', 'hi, ok.', '', '');
+INSERT INTO `orders` VALUES ('5', '1', '14', 'user2@gmail.com', '2023-05-16 13:18:34', 'completed', '4pm/10/5/2023', 'London', 'Hello, I need cleaning service.', 'hi, ok.', 'please come to LO140GE.', 'ok.');
+INSERT INTO `orders` VALUES ('10', '2', null, 'user1@gmail.com', '2023-05-16 13:04:38', 'accepted', '4pm/20/5/2023', 'Southampton', 'hello, I need babysitting service.', null, null, null);
+INSERT INTO `orders` VALUES ('12', '2', '15', 'user1@gmail.com', '2023-05-16 13:19:25', 'completed', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', 'hi, ok.', null, null);
+INSERT INTO `orders` VALUES ('14', '2', null, 'user2@gmail.com', '2023-05-16 13:04:45', 'accepted', '4pm/20/5/2023', 'Southampton', 'hello, I need babysitting service.', 'hi, ok.', null, null);
+INSERT INTO `orders` VALUES ('17', '2', '16', 'user2@gmail.com', '2023-05-16 13:20:00', 'completed', '4pm/10/5/2023', 'Southampton', null, null, null, null);
+INSERT INTO `orders` VALUES ('20', '2', '17', 'user1@gmail.com', '2023-05-16 13:20:47', 'completed', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', 'ok.', null, null);
+INSERT INTO `orders` VALUES ('21', '2', null, 'user2@gmail.com', '2023-05-16 13:05:46', 'completed', '4pm/10/5/2023', 'Southampton', 'hello, I need babysitting service.', 'ok.', '', '');
+INSERT INTO `orders` VALUES ('22', '2', null, 'user1@gmail.com', '2023-05-16 13:06:59', 'accepted', '4pm/17/5/2023', 'Southampton', 'hello, I need babysitting service.', 'ok.', null, null);
+INSERT INTO `orders` VALUES ('23', '2', null, 'user2@gmail.com', '2023-05-16 13:07:02', 'accepted', '4pm/17/5/2023', 'Southampton', 'hello, I need babysitting service.', 'ok.', null, null);
+INSERT INTO `orders` VALUES ('24', '2', null, 'user1@gmail.com', '2023-05-16 13:10:19', 'pending', '4pm/20/5/2023', 'Southampton', 'hi, I need babysitting service.', 'can you give more details?', null, null);
+INSERT INTO `orders` VALUES ('25', '2', null, 'user2@gmail.com', '2023-05-16 13:10:21', 'pending', '4pm/20/5/2023', 'Southampton', 'hi, I need babysitting service.', 'can you give more details?', null, null);
+INSERT INTO `orders` VALUES ('26', '1', null, 'user1@gmail.com', '2023-05-16 13:10:56', 'pending', '4pm/20/5/2023', 'London', 'hi, I need cleaning service.', 'can you give more details?', null, null);
+INSERT INTO `orders` VALUES ('27', '1', null, 'user2@gmail.com', '2023-05-16 13:10:58', 'pending', '4pm/20/5/2023', 'London', 'hi, I need cleaning service.', 'can you give more details?', null, null);
+INSERT INTO `orders` VALUES ('28', '3', null, 'user1@gmail.com', '2023-05-16 13:14:26', 'pending', '4pm/20/5/2023', 'Southampton', 'hi, I need plumbing service.', 'can you give more details?', null, null);
+INSERT INTO `orders` VALUES ('29', '3', null, 'user2@gmail.com', '2023-05-16 13:14:28', 'pending', '4pm/20/5/2023', 'Southampton', 'hi, I need plumbing service.', 'can you give more details?', null, null);
 
 -- ----------------------------
 -- Table structure for review
@@ -91,7 +96,7 @@ CREATE TABLE `review` (
   CONSTRAINT `FK_belong` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`),
   CONSTRAINT `FK_give` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
   CONSTRAINT `FK_include` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of review
@@ -99,6 +104,12 @@ CREATE TABLE `review` (
 INSERT INTO `review` VALUES ('2', '2', 'user1@gmail.com', '3', '4', 'good');
 INSERT INTO `review` VALUES ('9', '2', 'user1@gmail.com', '12', '4', 'good');
 INSERT INTO `review` VALUES ('10', '1', 'user1@gmail.com', '21', '4', 'fine');
+INSERT INTO `review` VALUES ('13', '2', 'user1@gmail.com', '3', '4', 'good!');
+INSERT INTO `review` VALUES ('14', '1', 'user2@gmail.com', '5', '3', 'normal.');
+INSERT INTO `review` VALUES ('15', '2', 'user1@gmail.com', '12', '5', 'very good!');
+INSERT INTO `review` VALUES ('16', '2', 'user2@gmail.com', '17', '3', 'normal.');
+INSERT INTO `review` VALUES ('17', '2', 'user1@gmail.com', '20', '3', 'normal.');
+INSERT INTO `review` VALUES ('18', '2', 'user2@gmail.com', '21', '5', 'very good!');
 
 -- ----------------------------
 -- Table structure for serviceprovider
@@ -117,9 +128,10 @@ CREATE TABLE `serviceprovider` (
 -- ----------------------------
 -- Records of serviceprovider
 -- ----------------------------
-INSERT INTO `serviceprovider` VALUES ('provider1@gmail.com', 'provider1', 'so14 0ge', 'provider1', '1', '2.6666666666666665');
-INSERT INTO `serviceprovider` VALUES ('provider2@gmail.com', 'provider2', 'so14 0gf', 'provider2', '0', '0');
-INSERT INTO `serviceprovider` VALUES ('provider3@gmail.com', 'provider3', 'so14 0gg', 'test2', '0', '0');
+INSERT INTO `serviceprovider` VALUES ('provider1@gmail.com', 'provider1', 'London', 'provider1', '1', '2.6666666666666665');
+INSERT INTO `serviceprovider` VALUES ('provider2@gmail.com', 'provider2', 'Southampton', 'provider2', '1', '0');
+INSERT INTO `serviceprovider` VALUES ('provider3@gmail.com', 'provider3', 'London', 'provider3', '1', '0');
+INSERT INTO `serviceprovider` VALUES ('provider4@gmail.com', 'provider4', 'Southampton', 'provider4', '0', '0');
 
 -- ----------------------------
 -- Table structure for services
@@ -147,7 +159,7 @@ CREATE TABLE `services` (
 -- ----------------------------
 INSERT INTO `services` VALUES ('1', 'provider1@gmail.com', 'room_cleaning_service', null, '100', 'London', ' weekdays', '1', 'provider1@gmail.com', 'Cleaning', '4');
 INSERT INTO `services` VALUES ('2', 'provider1@gmail.com', 'babysitting_service', null, '99', 'Southampton', ' 24/7', '1', 'provider1@gmail.com', 'Baby Sitting', '4');
-INSERT INTO `services` VALUES ('3', 'provider1@gmail.com', 'test for verification', null, '100', '1', '7/24', '0', 'provider1@gmail.com', 'Cleaning', '0');
+INSERT INTO `services` VALUES ('3', 'provider2@gmail.com', 'very_good_plumbing', null, '100', 'Southampton', '7/24', '0', 'provider2@gmail.com', 'Plumbing', '0');
 
 -- ----------------------------
 -- Table structure for users
@@ -164,5 +176,5 @@ CREATE TABLE `users` (
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES ('user1@gmail.com', null, 'user1');
-INSERT INTO `users` VALUES ('user2@gmail.com', null, 'user2/modi');
+INSERT INTO `users` VALUES ('user2@gmail.com', null, 'user2');
 INSERT INTO `users` VALUES ('user3@gmail.com', null, 'user3');
